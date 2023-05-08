@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <h1>Exemplo de formulário (output)</h1>
+    <form action="cadastro.php" method="get" autocomplete="on">
+        <fieldset>
+            <legend> Output Soma</legend>
+            <p>
+                <label for="in1">Número 1</label>
+                <input type="number" name="n1" id="in1" min="0" max="50" required oninput="
+                isom.innerHTML = Number(in1.value) + Number(in2.value)">
+            </p>
+            <p>
+                <label for="in2">Número 2</label>
+                <input type="number" name="n2" id="in2" min="0" max="50" required oninput="
+                isom.innerHTML = Number(in1.value) + Number(in2.value)">
+            </p>
+            <p>
+                <label for="isom">Soma: </label>
+                <output name="som" id="isom">0</output>
+            </p>
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+                <!-- quando o submit é acionado o que é enviado não é a soma dos dois valores e sim cada valor individualmente -->
+            </p>
+        </fieldset>
+    </form>
+
+    <form action="cadastro.php" method="get" autocomplete="on">
+        <fieldset>
+            <legend>Output Range</legend>
+            <p>
+                <label for="inum">Número</label>
+                <input type="range" name="num" id="inum" min="0" max="10" value="5" oninput="ival.innerHTML = Number(inum.value)">
+                <output id="ival">5</output>
+            </p>
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </p>
+        </fieldset>
+    </form>
+
+    <form action="cadastro.php" method="get" autocomplete="on">
+        <fieldset>
+            <legend>Output Idade</legend>
+            <p>
+                <label for="iano">Em que ano você nasceu?</label>
+                <input type="number" name="ano" id="iano" min="1900" max="2023" oninput="calcIdade()">
+            </p>
+            <p>
+                <label for="iidade">Sua idade é:</label>
+                <output id="iidade">0</output>
+            </p>
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </p>
+        </fieldset>
+    </form>
+
+    <script>
+        function calcIdade() {
+            let atual = new Date().getFullYear()
+            iidade.innerHTMl = Number(atual) - Number(iano.value)
+        }
+    </script>
+</body>
+</html>
